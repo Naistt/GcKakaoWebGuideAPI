@@ -28,7 +28,7 @@ jobs:
         run: dotnet publish ./GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
 
       - name: Faz deploy na Azure Function App
-        uses: Azure/functions-action@v3
+        uses: Azure/functions-action@v1
         with:
           app-name: gckakaowebguideapi20250725020510
           package: ./publish

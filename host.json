@@ -1,0 +1,30 @@
+{
+  "version": "2.0",
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "cors": {
+        "allowedOrigins": [
+          "http://localhost:4200",
+          "https://seu-front-end.netlify.app"
+        ],
+        "allowedMethods": [
+          "GET",
+          "POST",
+          "PUT",
+          "DELETE",
+          "OPTIONS"
+        ]
+      }
+    }
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    }
+  }
+}

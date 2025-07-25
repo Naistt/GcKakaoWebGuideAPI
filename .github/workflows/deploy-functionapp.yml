@@ -24,7 +24,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Publish
-        run: dotnet publish ./GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
+        run: dotnet publish ./GcKakaoWebGuideAPI/GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
 
 
       - name: Deploy to Azure Function App

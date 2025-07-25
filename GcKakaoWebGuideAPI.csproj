@@ -46,4 +46,7 @@
   <ItemGroup>
     <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".github\workflows\deploy-functionapp.yml" />
+  </ItemGroup>
 </Project>

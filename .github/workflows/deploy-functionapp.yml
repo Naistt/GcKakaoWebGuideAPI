@@ -1,33 +1,33 @@
-name: Deploy Azure Function
+name: Deploy Azure Function (.NET)
 
 on:
   push:
     branches:
-      - master    # ou 'main' se for o nome do seu branch principal
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout do código
         uses: actions/checkout@v3
 
-      - name: Setup .NET
+      - name: Instala o .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 8.0.x  # ou 6.0.x dependendo do seu projeto
+          dotnet-version: 8.0.x
 
-      - name: Restore
+      - name: Restaura dependências
         run: dotnet restore
 
-      - name: Build
+      - name: Build do projeto
         run: dotnet build --configuration Release --no-restore
 
-      - name: Publish
-        run: dotnet publish ./GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
+      - name: Publica o projeto
+        run: dotnet publish ./GcKakaoWebGuideAPI/GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
 
-
-      - name: Deploy to Azure Function App
+      - name: Faz deploy na Azure Function App
         uses: Azure/functions-action@v1
         with:
           app-name: gckakaowebguideapi20250725020510

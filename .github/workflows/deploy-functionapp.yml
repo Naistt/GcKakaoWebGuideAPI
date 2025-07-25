@@ -25,7 +25,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Publica o projeto
-        run: dotnet publish ./GcKakaoWebGuideAPI/GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
+        run: dotnet publish ./GcKakaoWebGuideAPI.csproj --configuration Release --output ./publish
 
       - name: Faz deploy na Azure Function App
         uses: Azure/functions-action@v1

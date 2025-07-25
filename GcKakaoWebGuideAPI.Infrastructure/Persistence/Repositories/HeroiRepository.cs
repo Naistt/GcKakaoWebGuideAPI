@@ -35,8 +35,7 @@ public class HeroiRepository : IHeroiRepository
         await _heroiCollection.InsertOneAsync(heroiDocToCreate);
     }
     public async Task UpdateAsync(Heroi heroi) {
-        var heroiDocToUpdate = _mapper.Map<HeroiDocument>(heroi);
-        var result = await _heroiCollection.ReplaceOneAsync(_ => _.Id == heroi.Id, heroiDocToUpdate);
+        var result = await _heroiCollection.ReplaceOneAsync(_ => _.Id == heroi.Id, _mapper.Map<HeroiDocument>(heroi));
 
         // Verifica se houve correspondência para a atualização
         if (result.MatchedCount == 0)
